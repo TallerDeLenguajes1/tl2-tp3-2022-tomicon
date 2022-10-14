@@ -12,8 +12,9 @@ public class Cadeteria
         this.listaCadetes = new List<Cadete>();
     }
 
-    public void agregarCadete(Cadete nuevo)
+    public void agregarCadete(int id, string nombre, string direccion, string telefono)
     {
+        Cadete nuevo= new Cadete(id, nombre, direccion, telefono);
         listaCadetes.Add(nuevo);
     }
 
