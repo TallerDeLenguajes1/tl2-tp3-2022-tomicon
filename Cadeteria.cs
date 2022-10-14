@@ -58,7 +58,46 @@ public class Cadeteria
     public void cambiarPedidoDeCadete(Pedido pedido, int idCadeteEntrega, int idCadeteNoEntrega){
         foreach (var repartidor in listaCadetes)
         {
-            
+            if (repartidor.Id==idCadeteNoEntrega)
+            {
+                repartidor.eliminarPedido(pedido);
+            }
+            if (repartidor.Id==idCadeteEntrega)
+            {
+                repartidor.agregarPedido(pedido);
+            }
         }
+    }
+
+    public void cadeteComenzoEntrega(int idCadete, Pedido pedido){
+        foreach (var repartidor in this.listaCadetes)
+        {
+            if (repartidor.Id == idCadete)
+            {
+                repartidor.comenzarEntrega(pedido);
+            }
+        }
+    }
+
+    public void cadeteRealizoEntrega(int idCadete, Pedido pedido){
+        foreach (var repartidor in this.listaCadetes)
+        {
+            if (repartidor.Id == idCadete)
+            {
+                repartidor.entregarPedido(pedido);
+            }
+        }
+    }
+
+    public double calcularJornalCadete(int idCadete){
+        double monto=0;
+        foreach (var repartidor in this.listaCadetes)
+        {
+            if (repartidor.Id==idCadete)
+            {
+                monto = repartidor.calcularJornal();
+            }
+        }
+        return monto;
     }
 }
