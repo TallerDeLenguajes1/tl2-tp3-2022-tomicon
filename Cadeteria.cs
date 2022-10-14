@@ -100,4 +100,19 @@ public class Cadeteria
         }
         return monto;
     }
+
+    public void mostrarInforme(){
+        int totalPedidos=0;
+        int pedidosPorCadete=0;
+        double montoTotal=0;
+        foreach (var repartidor in listaCadetes)
+        {
+            System.Console.WriteLine("cant envios del cadete nro" + repartidor.Id+": " + repartidor.ListadoPedidos1.Count());
+            totalPedidos += repartidor.ListadoPedidos1.Count();
+            montoTotal += repartidor.calcularJornal();
+        }
+        System.Console.WriteLine("cant total de pedidos: "+ totalPedidos);
+        System.Console.WriteLine("Promedio de pedidos x cadete: " + (totalPedidos/this.listaCadetes.Count()));
+        System.Console.WriteLine("Monto total: "+ montoTotal);
+    }
 }

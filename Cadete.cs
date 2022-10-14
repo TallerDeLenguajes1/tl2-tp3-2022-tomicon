@@ -3,17 +3,19 @@ public class Cadete : Persona
 {
     private List<Pedido> ListadoPedidos;
 
+    public List<Pedido> ListadoPedidos1 { get => ListadoPedidos; set => ListadoPedidos = value; }
+
     public Cadete(int id, string nombre, string direccion, string telefono) : base(id, nombre, direccion, telefono)
     {
-        ListadoPedidos= new List<Pedido>();
+        ListadoPedidos1= new List<Pedido>();
     }
 
     public void agregarPedido(Pedido nuevo){
-        ListadoPedidos.Add(nuevo);
+        ListadoPedidos1.Add(nuevo);
     }
 
     public void eliminarPedido(Pedido pedidoAEliminar){
-        if (this.ListadoPedidos.Remove(pedidoAEliminar))
+        if (this.ListadoPedidos1.Remove(pedidoAEliminar))
         {
             System.Console.WriteLine("Exito al eliminar el pedido");
         } else
@@ -24,7 +26,7 @@ public class Cadete : Persona
     }
 
     public void comenzarEntrega(Pedido pedido){
-        foreach (var encargo in this.ListadoPedidos)
+        foreach (var encargo in this.ListadoPedidos1)
         {
             if (encargo== pedido)
             {
@@ -34,7 +36,7 @@ public class Cadete : Persona
     }
 
     public void entregarPedido(Pedido pedido){
-        foreach (var encargo in this.ListadoPedidos)
+        foreach (var encargo in this.ListadoPedidos1)
         {
             if (encargo== pedido)
             {
@@ -47,7 +49,7 @@ public class Cadete : Persona
     {
         int canEntregados= 0;
         double pagoPorPedido= 300;
-        foreach (var pedido in this.ListadoPedidos)
+        foreach (var pedido in this.ListadoPedidos1)
         {
             if (pedido.Estado== Estados.entregado)
             {
