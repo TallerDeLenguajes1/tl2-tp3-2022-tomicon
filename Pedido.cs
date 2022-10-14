@@ -1,12 +1,14 @@
 // See https://aka.ms/new-console-template for more information
+
+public enum Estados {entregado, enCamino, porSalir};
 public class Pedido
 {
     private int nro;
     private string obs;
     private Cliente usuario;
-    private string estado;
+    private Estados estado;
 
-    public Pedido(int nro, string obs, string estado, int id, string nombre, string direccion, string telefono, string datosDirec)
+    public Pedido(int nro, string obs, Estados estado, int id, string nombre, string direccion, string telefono, string datosDirec)
     {
         Nro = nro;
         Obs = obs;
@@ -14,10 +16,14 @@ public class Pedido
         Estado = estado;
     }
 
-    public string Estado { get => estado; set => estado = value; }
+    public Estados Estado { get => estado; set => estado = value; }
     public Cliente Usuario { get => usuario; set => usuario = value; }
     public string Obs { get => obs; set => obs = value; }
     public int Nro { get => nro; set => nro = value; }
+
+    public void cambiarEstado(Estados nuevo){
+        this.Estado= nuevo;
+    }
     
 }
 

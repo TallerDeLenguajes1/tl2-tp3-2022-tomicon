@@ -16,4 +16,48 @@ public class Cadeteria
     {
         listaCadetes.Add(nuevo);
     }
+
+    public void asignarPedidoACadete(Pedido pedido, int idCadete){
+        bool bandera= true;
+        foreach (var repartidor in this.listaCadetes)
+        {
+            if (repartidor.Id== idCadete)
+            {
+                repartidor.agregarPedido(pedido);
+                bandera= false;
+            }
+        }
+        if (!bandera)
+        {
+            System.Console.WriteLine("El pedido se asignó correctamente");
+        } else
+        {
+            System.Console.WriteLine("No se pudo agregar el pedido al cadete");
+        }
+    }
+
+    public void removerPedidoDeCadete(Pedido pedido, int idCadete){
+        bool bandera= true;
+        foreach (var repartidor in this.listaCadetes)
+        {
+            if (repartidor.Id == idCadete)
+            {
+                repartidor.eliminarPedido(pedido);
+            }
+        }
+        if (!bandera)
+        {
+            System.Console.WriteLine("El pedido se elimino correctamente");
+        } else
+        {
+            System.Console.WriteLine("No se pudo eliminar el pedido al cadete");
+        }
+    }
+
+    public void cambiarPedidoDeCadete(Pedido pedido, int idCadeteEntrega, int idCadeteNoEntrega){
+        foreach (var repartidor in listaCadetes)
+        {
+            
+        }
+    }
 }

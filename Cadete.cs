@@ -11,5 +11,30 @@ public class Cadete : Persona
     public void agregarPedido(Pedido nuevo){
         ListadoPedidos.Add(nuevo);
     }
+
+    public void eliminarPedido(Pedido pedidoAEliminar){
+        if (this.ListadoPedidos.Remove(pedidoAEliminar))
+        {
+            System.Console.WriteLine("Exito al eliminar el pedido");
+        } else
+        {
+            System.Console.WriteLine("no se pudo eliminar el pedido");
+        }
+        
+    }
+
+    public double calcularJornal()
+    {
+        int canEntregados= 0;
+        double pagoPorPedido= 300;
+        foreach (var pedido in this.ListadoPedidos)
+        {
+            if (pedido.Estado== Estados.entregado)
+            {
+                canEntregados++;
+            }
+        }
+        return pagoPorPedido * canEntregados;
+    }
 }
 
