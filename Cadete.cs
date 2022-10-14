@@ -23,6 +23,26 @@ public class Cadete : Persona
         
     }
 
+    public void comenzarEntrega(Pedido pedido){
+        foreach (var encargo in this.ListadoPedidos)
+        {
+            if (encargo== pedido)
+            {
+                encargo.cambiarEstado(Estados.enCamino);
+            }
+        }
+    }
+
+    public void entregarPedido(Pedido pedido){
+        foreach (var encargo in this.ListadoPedidos)
+        {
+            if (encargo== pedido)
+            {
+                encargo.cambiarEstado(Estados.entregado);
+            }
+        }
+    }
+
     public double calcularJornal()
     {
         int canEntregados= 0;
